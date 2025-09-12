@@ -1,0 +1,82 @@
+/* -------------------------------------------------------------------
+   メモ
+   *使うやつ
+   text-align     : テキストの配置 left or center or right
+   background-color : 背景色
+   border         : 枠線 太さ , 線種 , 色
+   padding        : 内側の余白
+   padding-*      : ○方向だけの内側余白
+   margin         : 外側の余白 auto で中央寄せ
+   margin-*       : ○方向だけの外側余白
+   max-width      : 要素の最大横幅
+   font-size      : 文字サイズ
+   display        : 要素の表示形式 flex使ってる
+   align-items    : flexboxの縦方向揃え
+   width          : 横幅指定
+
+   *たまに使う使わないやつ
+   background: linear-gradient(): 色のグラデ―ション作る
+   ------------------------------------------------------------------- */
+
+.title{
+  text-align: center;  
+
+}
+
+body{
+    background: linear-gradient(
+    
+    red,
+    orange,
+    yellow,
+    green,
+    aqua,
+    blue,
+    purple
+  );
+}
+
+.form {
+  border: 5px solid black;   /* 枠線 */
+  padding: 50px;             /* 内側の余白 */
+  margin: 20px auto;         /* 外側の余白 */
+  margin-top: 80px;
+  max-width: 600px;          /* 最大幅 */
+  font-size: 25px;
+  background-color: white;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;       /* 各行の間に余白 */
+}
+
+
+.label {
+  width: 180px;
+  margin-right: 10px;
+}
+
+/*------------------------------------------------------------------------------------*/
+
+.todofuken{
+  width: 300px;
+  padding:3px;
+}
+
+.input1{
+  width: 300px;
+}
+
+.year{
+  width: 100px;
+}
+
+.month{
+  width: 100px;
+}
+
+.day{
+  width: 100px;
+}
