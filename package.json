@@ -1,0 +1,19 @@
+{
+  "name": "nodejs_lesson",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "eslint": "eslint ./",
+    "start": "nodemon app.js"
+  },
+  "author": "Progate",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
