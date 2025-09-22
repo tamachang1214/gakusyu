@@ -9,14 +9,13 @@ const connection = mysql.createConnection({
   //データベース名、パスワード等を書く
   host: "localhost",
   user: "root",
-  password: "nasubi16",
+  password: "test",
   database: "butaman",
 });
 
 // '/' ホームページを返す
 app.get("/", (req, res) => {
   res.render("form.ejs");
-
   //ここにクエリを書く
 });
 
