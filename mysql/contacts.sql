@@ -1,0 +1,10 @@
+CREATE TABLE butaman.contacts(
+	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	prefecture VARCHAR(30) NOT NULL,
+	municipality VARCHAR(30) NOT NULL,
+	address VARCHAR(255) NOT NULL,
+	birth TIMESTAMP NOT NULL,
+	name VARCHAR(255) NOT NULL,
+	email VARCHAR(255) NOT NULL,
+	comment TEXT
+);
