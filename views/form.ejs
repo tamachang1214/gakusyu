@@ -2,10 +2,24 @@
 <!---------------------------------------------------
  <form></form> フォームを作るときはHTMLの<form>タグを用います。 action属性には送信先のURL、method属性には「post」か「get」をルーティングに合わせて指定します。
 divで囲んでいたのをformタグへ変更
-<button type="submit">送信</button> ボタン作るタグ type="submit" フォーム送信する設定らしい
+<button type="submit">送信</button> ボタン作るタグ type="submit" フォーム送信する設定 デフォでsubmitだけど、分かりやすく書いた方がいい
 
+type inputに書く どんな入力欄か形式を設定 textとかemailとか色々 selectタブみたいな特殊なやつには不要
+name サーバーに送る時の名前をつける { {name}: "入力値" }でサーバーに届く
 
-
+*テーブル構成
++--------------+--------------+------+-----+---------+----------------+
+| Field        | Type         | Null | Key | Default | Extra          |
++--------------+--------------+------+-----+---------+----------------+
+| id           | int          | NO   | PRI | NULL    | auto_increment |
+| prefecture   | varchar(30)  | NO   |     | NULL    |                |
+| municipality | varchar(30)  | NO   |     | NULL    |                |
+| address      | varchar(255) | NO   |     | NULL    |                |
+| birth        | timestamp    | NO   |     | NULL    |                |
+| name         | varchar(255) | NO   |     | NULL    |                |
+| email        | varchar(255) | NO   |     | NULL    |                |
+| comment      | text         | YES  |     | NULL    |                |
++--------------+--------------+------+-----+---------+----------------+
 
 ------------------------------------------------------>
 
@@ -19,8 +33,7 @@ divで囲んでいたのをformタグへ変更
   <form class="form" action="/create" method="post">
     <div class="form-row">
       <p class="label">★住所★</p>
-
-      <select class="todofuken">
+      <select class="todofuken" name="prefecture">
         <option>都道府県を選択</option>
         <option>北海道</option>
         <option>青森県</option>
@@ -74,18 +87,18 @@ divで囲んでいたのをformタグへ変更
 
     <div class="form-row">
       <p class="label">★市区町村★</p>
-      <input type="text" class="input1" />
+      <input type="text" class="input1" name="municipality" />
     </div>
 
     <div class="form-row">
       <p class="label">★その後住所★</p>
-      <input type="text" class="input1" />
+      <input type="text" class="input1" name="address" />
     </div>
 
     <div class="form-row">
       <p class="label">☆生年月日☆</p>
       <div class="ymd">
-        <select class="year">
+        <select class="year" name="year">
           <option value="">年</option>
           <option>1900</option>
           <option>1901</option>
@@ -215,8 +228,8 @@ divで囲んでいたのをformタグへ変更
           <option>2025</option>
         </select>
 
-        <select class="month">
-          <option>月</option>
+        <select class="month" name="month">
+          <option value="">月</option>
           <option>1</option>
           <option>2</option>
           <option>3</option>
@@ -231,7 +244,7 @@ divで囲んでいたのをformタグへ変更
           <option>12</option>
         </select>
 
-        <select class="day">
+        <select class="day" name="day">
           <option value="">日</option>
           <option>1</option>
           <option>2</option>
@@ -270,20 +283,20 @@ divで囲んでいたのをformタグへ変更
 
     <div class="form-row">
       <p class="label">★名前★</p>
-      <input type="text" class="input1" />
+      <input type="text" class="input1" name="name" />
     </div>
 
     <div class="form-row">
       <p class="label">★メアド★</p>
-      <input type="text" class="input1" />
+      <input type="email" class="input1" name="email" />
     </div>
 
     <div class="form-row">
       <p class="label">★自由コメント★</p>
-      <input type="text" class="input1" />
+      <input type="text" class="input1" name="comment" />
     </div>
 
-    <div class = "button-row">
+    <div class="button-row">
       <button class="send-button" type="submit">送信</button>
     </div>
   </form>
