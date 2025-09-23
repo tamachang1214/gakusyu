@@ -3,6 +3,8 @@ const app = express();
 const mysql = require("mysql");
 
 app.use(express.static("public"));
+//フォームの値を受け取るuse
+app.use(express.urlencoded({ extended: false }));
 
 //mysqlの接続情報設定
 const connection = mysql.createConnection({
@@ -24,14 +26,11 @@ app.get("/top", (req, res) => {
   res.render("top.ejs");
 });
 
-app.post('/create',(req,res)=>{
-  //メモを追加する処理
+// ここで設定
+app.post("/create", (req, res) => {
+  console.log(req.body.itemName);
 
-  //一覧画面を表示する処理
-  connection.query(
-    
-  );
-
+  connection.query();
 });
 
 app.listen(3000);

@@ -69,3 +69,12 @@ form.form {
 .day {
   width: 100px;
 }
+
+.button-row {
+  text-align: right;
+}
+
+.send-button {
+  padding: 10px;
+  font-size: 25px;
+}
