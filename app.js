@@ -24,4 +24,14 @@ app.get("/top", (req, res) => {
   res.render("top.ejs");
 });
 
+app.post('/create',(req,res)=>{
+  //メモを追加する処理
+
+  //一覧画面を表示する処理
+  connection.query(
+    
+  );
+
+});
+
 app.listen(3000);

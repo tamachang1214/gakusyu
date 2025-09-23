@@ -18,30 +18,20 @@
    background: linear-gradient(): 色のグラデ―ション作る
    ------------------------------------------------------------------- */
 
-.title{
-  text-align: center;  
-
+.title {
+  text-align: center;
 }
 
-body{
-    background: linear-gradient(
-    
-    red,
-    orange,
-    yellow,
-    green,
-    aqua,
-    blue,
-    purple
-  );
+body {
+  background: linear-gradient(red, orange, yellow, green, aqua, blue, purple);
 }
 
-.form {
-  border: 5px solid black;   /* 枠線 */
-  padding: 50px;             /* 内側の余白 */
-  margin: 20px auto;         /* 外側の余白 */
+form.form {
+  border: 5px solid black; /* 枠線 */
+  padding: 50px; /* 内側の余白 */
+  margin: 20px auto; /* 外側の余白 */
   margin-top: 80px;
-  max-width: 600px;          /* 最大幅 */
+  max-width: 600px; /* 最大幅 */
   font-size: 25px;
   background-color: white;
 }
@@ -49,9 +39,8 @@ body{
 .form-row {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;       /* 各行の間に余白 */
+  margin-bottom: 20px; /* 各行の間に余白 */
 }
-
 
 .label {
   width: 200px;
@@ -60,23 +49,23 @@ body{
 
 /*------------------------------------------------------------------------------------*/
 
-.todofuken{
+.todofuken {
   width: 300px;
-  padding:3px;
+  padding: 3px;
 }
 
-.input1{
+.input1 {
   width: 300px;
 }
 
-.year{
+.year {
   width: 100px;
 }
 
-.month{
+.month {
   width: 100px;
 }
 
-.day{
+.day {
   width: 100px;
 }

@@ -1,13 +1,22 @@
 <!DOCTYPE html>
+<!---------------------------------------------------
+ <form></form> フォームを作るときはHTMLの<form>タグを用います。 action属性には送信先のURL、method属性には「post」か「get」をルーティングに合わせて指定します。
+divで囲んでいたのをformタグへ変更
+
+
+
+
+
+------------------------------------------------------>
 
 <head>
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/style.css" />
 </head>
 
 <body>
   <h1 class="title">お問い合わせフォーム</h1>
 
-  <div class="form">
+  <form class="form" action="/create" method="post">
     <div class="form-row">
       <p class="label">★住所★</p>
 
@@ -62,15 +71,15 @@
         <option>沖縄県</option>
       </select>
     </div>
-    
+
     <div class="form-row">
       <p class="label">★市区町村★</p>
-      <input type="text" class="input1">
+      <input type="text" class="input1" />
     </div>
 
     <div class="form-row">
       <p class="label">★その後住所★</p>
-      <input type="text" class="input1">
+      <input type="text" class="input1" />
     </div>
 
     <div class="form-row">
@@ -261,18 +270,19 @@
 
     <div class="form-row">
       <p class="label">★名前★</p>
-      <input type="text" class="input1">
+      <input type="text" class="input1" />
     </div>
 
     <div class="form-row">
       <p class="label">★メアド★</p>
-      <input type="text" class="input1">
+      <input type="text" class="input1" />
     </div>
 
     <div class="form-row">
       <p class="label">★自由コメント★</p>
-      <input type="text" class="input1">
+      <input type="text" class="input1" />
     </div>
 
-  </div>
+    <div class=""></div>
+  </form>
 </body>
