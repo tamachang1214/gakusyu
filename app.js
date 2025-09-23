@@ -1,3 +1,15 @@
+// --------------------------------------------------------------------
+// req.タブ名.名前 サーバーに渡すの 例:req.body.year
+// connection.query() Node.jsとmysqlをつなぐ関数 SQLを書ける
+//
+// JavaScriptの変数をSQL文に入れる方法 ?,?,?...,[変数1,変数2,変数3...]
+// 値を入れたい所を?にする、後ろに配列[]をかく（配列はSQLじゃないので、""の外に書く）
+//
+// connection.query('SQL',(error,result)=>{};); SQLの結果はresultに入る
+//
+//
+//---------------------------------------------------------------------
+
 const express = require("express");
 const app = express();
 const mysql = require("mysql");
@@ -30,7 +42,39 @@ app.get("/top", (req, res) => {
 app.post("/create", (req, res) => {
   console.log(req.body);
 
-  //connection.query();
+  const year = req.body.year;
+  let month = req.body.month;
+  let day = req.body.day;
+
+  if (month < 10) {
+    month = "0" + month;
+  }
+  if (day < 10) {
+    day = "0" + day;
+  }
+  console.log(month, day);
+
+  req.body.birth = year + "-" + month + "-" + day + " 00:00:00";
+
+  console.log(req.body.birth);
+
+  connection.query(
+    "INSERT INTO contacts(prefecture,municipality,address,birth,name,email,comment) VALUES(?,?,?,?,?,?,?)",
+    [
+      req.body.prefecture,
+      req.body.municipality,
+      req.body.address,
+      req.body.birth,
+      req.body.name,
+      req.body.email,
+      req.body.comment,
+    ],
+    (error, results) => {
+      connection.query("SELECT * FROM contacts", (error, results) => {
+        console.table(results);
+      });
+    }
+  );
 });
 
 app.listen(3000);
