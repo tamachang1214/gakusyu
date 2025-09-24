@@ -3,7 +3,7 @@ CREATE TABLE butaman.contacts(
 	prefecture VARCHAR(30) NOT NULL,
 	municipality VARCHAR(30) NOT NULL,
 	address VARCHAR(255) NOT NULL,
-	birth TIMESTAMP NOT NULL,
+	birth DATE NOT NULL,
 	name VARCHAR(255) NOT NULL,
 	email VARCHAR(255) NOT NULL,
 	comment TEXT

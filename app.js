@@ -7,6 +7,9 @@
 //
 // connection.query('SQL',(error,result)=>{};); SQLの結果はresultに入る
 //
+// console.table(results); ログにテーブル表示
+//
+// (error) SQLの実行が失敗したときに、エラーメッセージが入る 真ならerrorオブジェクト、偽ならnull
 //
 //---------------------------------------------------------------------
 
@@ -54,8 +57,7 @@ app.post("/create", (req, res) => {
   }
   console.log(month, day);
 
-  req.body.birth = year + "-" + month + "-" + day + " 00:00:00";
-
+  req.body.birth = year + "-" + month + "-" + day;
   console.log(req.body.birth);
 
   connection.query(
@@ -72,6 +74,7 @@ app.post("/create", (req, res) => {
     (error, results) => {
       connection.query("SELECT * FROM contacts", (error, results) => {
         console.table(results);
+        res.render("form.ejs");
       });
     }
   );
