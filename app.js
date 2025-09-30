@@ -37,8 +37,8 @@ app.get("/", (req, res) => {
 });
 
 //連なるページ作成時には以下のように記載
-app.get("/top", (req, res) => {
-  res.render("top.ejs");
+app.get("/study", (req, res) => {
+  res.render("study.ejs");
 });
 
 // ここで送信設定
@@ -74,7 +74,7 @@ app.post("/create", (req, res) => {
     (error, results) => {
       connection.query("SELECT * FROM contacts", (error, results) => {
         console.table(results);
-        res.render("form.ejs");
+        res.redirect("/");
       });
     }
   );
