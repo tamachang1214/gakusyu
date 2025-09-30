@@ -304,11 +304,14 @@ name サーバーに送る時の名前をつける { {name}: "入力値" }でサ
     </div>
   </form>
   <!-------------------------------------------------------------------
-.addEventListener(); イベント
-配列.forEach((n, i) => {}); 配列用のループ
-n=配列の要素、i=インデックス [0]スタート
-
-
+  .addEventListener(); イベント
+  配列.forEach((n, i) => {}); 配列用のループ
+  n=配列の要素、i=インデックス [0]スタート
+  document.querySelector("タグ名[name='abcde']"); cssも引きつぐ
+  document.createElement("タグ名"); <option>足す場合は("option")
+  親.appendChild(); 追加する
+  .textContent ユーザーに見える文字 selectボックスの中のUI
+  .value 値 プログラム側で使う値
 
 -------------------------------------------------------------------->
 
@@ -373,6 +376,15 @@ n=配列の要素、i=インデックス [0]スタート
         ];
         tokyoCities.forEach((city, index) => {
           console.log(index, city);
+
+          const sikutyoson = document.querySelector(
+            "select[name='municipality']"
+          ); //市町村のselect
+          const soption = document.createElement("option"); //オプションタグ追加
+
+          soption.textContent = city;
+          soption.value = city;
+          sikutyoson.appendChild(soption);
         });
       } else {
         console.log("東京都じゃない");
