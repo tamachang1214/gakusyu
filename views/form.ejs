@@ -312,7 +312,8 @@ name サーバーに送る時の名前をつける { {name}: "入力値" }でサ
   親.appendChild(); 追加する
   .textContent ユーザーに見える文字 selectボックスの中のUI
   .value 値 プログラム側で使う値
-  .remove(); 削除
+  .remove(); 削除 ()=要素全て削除 (0)=インデックス指定して削除 
+  <select要素>.options.length selectタグの中のoptionタグの数
 
 -------------------------------------------------------------------->
 
@@ -403,13 +404,12 @@ name サーバーに送る時の名前をつける { {name}: "入力値" }でサ
         soption.textContent = def;
         soption.value = def;
 
-        tokyoCities.forEach((city, index) => {
-          sikutyoson.remove(option);
-          console.log(index);
+        while (sikutyoson.options.length > 0) {
+          sikutyoson.remove(0);
           console.log(sikutyoson.outerHTML);
-        });
+        }
+
         sikutyoson.appendChild(soption);
-        console.log(sikutyoson.outerHTML);
       }
 
       //足りない機能 東京都⇒別の県にしたとき、市町村がリセットされるように  あと宮崎県も造る
