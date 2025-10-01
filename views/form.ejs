@@ -323,7 +323,7 @@ name サーバーに送る時の名前をつける { {name}: "入力値" }でサ
     todofuken.addEventListener("change", (e) => {
       const option = e.target.selectedOptions[0]; //option = 選択県になる
       const value = option.value || option.textContent;
-      console.log(option); // <option>ノードそのもの
+      //console.log(option); // <option>ノードそのもの
       const sikutyoson = document.querySelector("select[name='municipality']");
       const tokyoCities = [
         "千代田区",
@@ -375,9 +375,40 @@ name サーバーに送る時の名前をつける { {name}: "入力値" }でサ
         "あきる野市",
         "西東京市",
       ];
+      const miyazakiCities = [
+        "宮崎市",
+        "都城市",
+        "延岡市",
+        "日南市",
+        "小林市",
+        "日向市",
+        "串間市",
+        "西都市",
+        "えびの市",
+        "三股町",
+        "高原町",
+        "国富町",
+        "綾町",
+        "高鍋町",
+        "新富町",
+        "西米良村",
+        "木城町",
+        "川南町",
+        "都農町",
+        "門川町",
+        "諸塚村",
+        "椎葉村",
+        "美郷町",
+        "高千穂町",
+        "日之影町",
+        "五ヶ瀬町",
+      ];
 
       if (value === "東京都") {
-        sikutyoson.remove(option); //"------"を消す
+        while (sikutyoson.options.length > 0) {
+          sikutyoson.remove(0);
+          console.log(sikutyoson.outerHTML);
+        }
 
         tokyoCities.forEach((city, index) => {
           //console.log(index, city);
@@ -390,18 +421,35 @@ name サーバーに送る時の名前をつける { {name}: "入力値" }でサ
           console.log(city);
           console.log(sikutyoson.outerHTML);
         });
+      } else if (value === "宮崎県") {
+        while (sikutyoson.options.length > 0) {
+          sikutyoson.remove(0);
+          console.log(sikutyoson.outerHTML);
+        }
+
+        miyazakiCities.forEach((city, index) => {
+          //console.log(index, city);
+          const soption = document.createElement("option"); //オプションタグ追加
+          soption.textContent = city;
+          soption.value = city;
+
+          sikutyoson.appendChild(soption);
+
+          console.log(city);
+          console.log(sikutyoson.outerHTML);
+        });
       } else {
+        while (sikutyoson.options.length > 0) {
+          sikutyoson.remove(0);
+          console.log(sikutyoson.outerHTML);
+        }
+
         console.log("東京都じゃない");
         const def = "-----------";
 
         const soption = document.createElement("option");
         soption.textContent = def;
         soption.value = def;
-
-        while (sikutyoson.options.length > 0) {
-          sikutyoson.remove(0);
-          console.log(sikutyoson.outerHTML);
-        }
 
         sikutyoson.appendChild(soption);
       }
