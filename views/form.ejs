@@ -89,7 +89,7 @@ name サーバーに送る時の名前をつける { {name}: "入力値" }でサ
     <div class="form-row">
       <p class="label">★市区町村★</p>
       <select class="input1" name="municipality" id="sikutyoson">
-        <option>-----------</option>
+        <option id="del">-----------</option>
       </select>
     </div>
 
@@ -312,6 +312,7 @@ name サーバーに送る時の名前をつける { {name}: "入力値" }でサ
   親.appendChild(); 追加する
   .textContent ユーザーに見える文字 selectボックスの中のUI
   .value 値 プログラム側で使う値
+  .remove(); 削除
 
 -------------------------------------------------------------------->
 
@@ -322,60 +323,62 @@ name サーバーに送る時の名前をつける { {name}: "入力値" }でサ
       const option = e.target.selectedOptions[0]; //option = 選択県になる
       const value = option.value || option.textContent;
       console.log(option); // <option>ノードそのもの
+      const tokyoCities = [
+        "千代田区",
+        "中央区",
+        "港区",
+        "新宿区",
+        "文京区",
+        "台東区",
+        "墨田区",
+        "江東区",
+        "品川区",
+        "目黒区",
+        "大田区",
+        "世田谷区",
+        "渋谷区",
+        "中野区",
+        "杉並区",
+        "豊島区",
+        "北区",
+        "荒川区",
+        "板橋区",
+        "練馬区",
+        "足立区",
+        "葛飾区",
+        "江戸川区",
+        "八王子市",
+        "立川市",
+        "武蔵野市",
+        "三鷹市",
+        "府中市",
+        "昭島市",
+        "調布市",
+        "町田市",
+        "小金井市",
+        "小平市",
+        "日野市",
+        "東村山市",
+        "国分寺市",
+        "国立市",
+        "福生市",
+        "狛江市",
+        "東大和市",
+        "清瀬市",
+        "東久留米市",
+        "武蔵村山市",
+        "多摩市",
+        "稲城市",
+        "羽村市",
+        "あきる野市",
+        "西東京市",
+      ];
+
       if (value === "東京都") {
-        console.log("1");
-        const tokyoCities = [
-          "千代田区",
-          "中央区",
-          "港区",
-          "新宿区",
-          "文京区",
-          "台東区",
-          "墨田区",
-          "江東区",
-          "品川区",
-          "目黒区",
-          "大田区",
-          "世田谷区",
-          "渋谷区",
-          "中野区",
-          "杉並区",
-          "豊島区",
-          "北区",
-          "荒川区",
-          "板橋区",
-          "練馬区",
-          "足立区",
-          "葛飾区",
-          "江戸川区",
-          "八王子市",
-          "立川市",
-          "武蔵野市",
-          "三鷹市",
-          "府中市",
-          "昭島市",
-          "調布市",
-          "町田市",
-          "小金井市",
-          "小平市",
-          "日野市",
-          "東村山市",
-          "国分寺市",
-          "国立市",
-          "福生市",
-          "狛江市",
-          "東大和市",
-          "清瀬市",
-          "東久留米市",
-          "武蔵村山市",
-          "多摩市",
-          "稲城市",
-          "羽村市",
-          "あきる野市",
-          "西東京市",
-        ];
+        sikutyoson.remove(option); //"------"を消す
+
         tokyoCities.forEach((city, index) => {
-          console.log(index, city);
+          //console.log(index, city);
 
           const sikutyoson = document.querySelector(
             "select[name='municipality']"
@@ -385,10 +388,31 @@ name サーバーに送る時の名前をつける { {name}: "入力値" }でサ
           soption.textContent = city;
           soption.value = city;
           sikutyoson.appendChild(soption);
+
+          console.log(city);
+          console.log(sikutyoson.outerHTML);
         });
       } else {
         console.log("東京都じゃない");
+        const sikutyoson = document.querySelector(
+          "select[name='municipality']"
+        );
+        const def = "-----------";
+
+        const soption = document.createElement("option");
+        soption.textContent = def;
+        soption.value = def;
+
+        tokyoCities.forEach((city, index) => {
+          sikutyoson.remove(option);
+          console.log(index);
+          console.log(sikutyoson.outerHTML);
+        });
+        sikutyoson.appendChild(soption);
+        console.log(sikutyoson.outerHTML);
       }
+
+      //足りない機能 東京都⇒別の県にしたとき、市町村がリセットされるように  あと宮崎県も造る
     });
   </script>
 </body>
