@@ -314,7 +314,7 @@ name サーバーに送る時の名前をつける { {name}: "入力値" }でサ
   .value 値 プログラム側で使う値
   .remove(); 削除 ()=要素全て削除 (0)=インデックス指定して削除 
   <select要素>.options.length selectタグの中のoptionタグの数
-
+  console.log(★.outerHTML); HTMLの変移を確認する時に
 -------------------------------------------------------------------->
 
   <script>
@@ -324,6 +324,7 @@ name サーバーに送る時の名前をつける { {name}: "入力値" }でサ
       const option = e.target.selectedOptions[0]; //option = 選択県になる
       const value = option.value || option.textContent;
       console.log(option); // <option>ノードそのもの
+      const sikutyoson = document.querySelector("select[name='municipality']");
       const tokyoCities = [
         "千代田区",
         "中央区",
@@ -380,14 +381,10 @@ name サーバーに送る時の名前をつける { {name}: "入力値" }でサ
 
         tokyoCities.forEach((city, index) => {
           //console.log(index, city);
-
-          const sikutyoson = document.querySelector(
-            "select[name='municipality']"
-          ); //市町村のselect
           const soption = document.createElement("option"); //オプションタグ追加
-
           soption.textContent = city;
           soption.value = city;
+
           sikutyoson.appendChild(soption);
 
           console.log(city);
@@ -395,9 +392,6 @@ name サーバーに送る時の名前をつける { {name}: "入力値" }でサ
         });
       } else {
         console.log("東京都じゃない");
-        const sikutyoson = document.querySelector(
-          "select[name='municipality']"
-        );
         const def = "-----------";
 
         const soption = document.createElement("option");
