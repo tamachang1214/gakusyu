@@ -37,8 +37,8 @@ app.get("/", (req, res) => {
 });
 
 //連なるページ作成時には以下のように記載
-app.get("/study", (req, res) => {
-  res.render("study.ejs");
+app.get("/index", (req, res) => {
+  res.render("index.ejs");
 });
 
 // ここで送信設定

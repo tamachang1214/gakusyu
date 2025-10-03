@@ -25,7 +25,9 @@ name サーバーに送る時の名前をつける { {name}: "入力値" }でサ
 ------------------------------------------------------------------->
 
 <head>
+  <meta charset="utf-8" />
   <link rel="stylesheet" href="/css/style.css" />
+  <title>お問い合わせフォーム</title>
 </head>
 
 <body>
@@ -88,7 +90,7 @@ name サーバーに送る時の名前をつける { {name}: "入力値" }でサ
 
     <div class="form-row">
       <p class="label">★市区町村★</p>
-      <select class="input1" name="municipality" id="sikutyoson">
+      <select class="input1" name="municipality">
         <option id="del">-----------</option>
       </select>
     </div>
@@ -303,6 +305,13 @@ name サーバーに送る時の名前をつける { {name}: "入力値" }でサ
       <button class="send-button" type="submit">送信</button>
     </div>
   </form>
+
+  <div class="button-row">
+    <form action="/index" method="get">
+      <button class="send-button" type="submit">一覧を見る</button>
+    </form>
+  </div>
+
   <!-------------------------------------------------------------------
   .addEventListener(); イベント
   配列.forEach((n, i) => {}); 配列用のループ
@@ -310,7 +319,7 @@ name サーバーに送る時の名前をつける { {name}: "入力値" }でサ
   document.querySelector("タグ名[name='abcde']"); cssも引きつぐ
   document.createElement("タグ名"); <option>足す場合は("option")
   親.appendChild(); 追加する
-  .textContent ユーザーに見える文字 selectボックスの中のUI
+  .textContent ユーザーに見える文字 selectボックスの中のUI <p>ココ<p>
   .value 値 プログラム側で使う値
   .remove(); 削除 ()=要素全て削除 (0)=インデックス指定して削除 
   <select要素>.options.length selectタグの中のoptionタグの数
@@ -453,8 +462,6 @@ name サーバーに送る時の名前をつける { {name}: "入力値" }でサ
 
         sikutyoson.appendChild(soption);
       }
-
-      //足りない機能 東京都⇒別の県にしたとき、市町村がリセットされるように  あと宮崎県も造る
     });
   </script>
 </body>
