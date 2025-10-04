@@ -38,7 +38,10 @@ app.get("/", (req, res) => {
 
 //連なるページ作成時には以下のように記載
 app.get("/index", (req, res) => {
-  res.render("index.ejs");
+  // ここではDBから取らずにテスト用の配列を用意
+  connection.query("SELECT * FROM contacts", (error, results) => {
+    res.render("index.ejs", { contacts: results });
+  });
 });
 
 // ここで送信設定
@@ -78,6 +81,13 @@ app.post("/create", (req, res) => {
       });
     }
   );
+});
+
+//index.ejs---------------------------------------------------------------------
+app.post("/delete/:id", (req, res) => {
+  console.log(req, params.id);
+
+  res.redirect("/index");
 });
 
 app.listen(3000);

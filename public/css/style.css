@@ -22,6 +22,21 @@
   text-align: center;
 }
 
+header {
+  height: 56px;
+  background-color: #4250ca;
+  border-bottom: 1px solid #3669a7;
+}
+
+.header-logo {
+  margin-left: 56px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 56px;
+  color: #000000;
+  display: inline;
+}
+
 body {
   background: linear-gradient(red, orange, yellow, green, aqua, blue, purple);
 }
@@ -46,8 +61,6 @@ form.form {
   width: 200px;
   margin-right: 10px;
 }
-
-/*------------------------------------------------------------------------------------*/
 
 .todofuken {
   width: 300px;
@@ -77,4 +90,15 @@ form.form {
 .send-button {
   padding: 10px;
   font-size: 25px;
+}
+
+/*index.ejs------------------------------------------------------------------------------------*/
+form.form-index {
+  border: 5px solid black; /* 枠線 */
+  padding: 250px; /* 内側の余白 */
+  margin: 20px auto; /* 外側の余白 */
+  margin-top: 80px;
+  max-width: 600px; /* 最大幅 */
+  font-size: 25px;
+  background-color: white;
 }

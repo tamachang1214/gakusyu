@@ -8,8 +8,21 @@
     <style></style>
   </head>
   <body>
-    <script>
-      
-    </script>
+    <header>
+      <div class="header-logo">お問い合わせ者一覧</div>
+    </header>
+    <ul>
+      <% contacts.forEach((item) => { %>
+        <li>
+          <span><%= item.id %></span>
+          <span><%= item.name %></span>
+          <form action="/delete/<%= item.id %>" method="post" style="display:inline;">
+            <button type="submit">削除</button>
+          </form>
+        </li>
+      <% }) %>
+    </ul>
+
+    <script></script>
   </body>
 </html>
