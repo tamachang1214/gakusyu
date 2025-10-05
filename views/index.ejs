@@ -13,13 +13,23 @@
     </header>
     <ul>
       <% contacts.forEach((item) => { %>
-        <li>
-          <span><%= item.id %></span>
-          <span><%= item.name %></span>
-          <form action="/delete/<%= item.id %>" method="post" style="display:inline;">
-            <button type="submit">削除</button>
-          </form>
-        </li>
+      <li>
+        <span><%= item.id %></span>
+        <span><%= item.prefecture %></span>
+        <span><%= item.municipality %></span>
+        <span><%= item.address %></span>
+        <span><%= item.birth %></span>
+        <span><%= item.name %></span>
+        <span><%= item.email %></span>
+        <span><%= item.comment %></span>
+        <form
+          action="/delete/<%= item.id %>"
+          method="post"
+          style="display: inline"
+        >
+          <button type="submit">削除</button>
+        </form>
+      </li>
       <% }) %>
     </ul>
 
