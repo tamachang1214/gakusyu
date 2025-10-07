@@ -11,6 +11,7 @@
 //
 // (error) SQLの実行が失敗したときに、エラーメッセージが入る 真ならerrorオブジェクト、偽ならnull
 //
+// req.params.id URLから取得した id
 //---------------------------------------------------------------------
 
 const express = require("express");
@@ -85,9 +86,14 @@ app.post("/create", (req, res) => {
 
 //index.ejs---------------------------------------------------------------------
 app.post("/delete/:id", (req, res) => {
-  console.log(req, params.id);
-
-  res.redirect("/index");
+  connection.query(
+    "DELETE FROM contacts WHERE id = ?",
+    [req.params.id],
+    (error, results) => {
+      console.log(req.params.id);
+      res.redirect("/index");
+    }
+  );
 });
 
 app.listen(3000);
