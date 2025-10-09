@@ -102,3 +102,9 @@ form.form-index {
   font-size: 25px;
   background-color: white;
 }
+
+/*edit.ejs------------------------------------------------------------------------------------*/
+.editbutton div{
+  display :flex;
+  align-items :center;
+}

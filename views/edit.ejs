@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!-------------------------------------------------------------------
+ <form></form> フォームを作るときはHTMLの<form>タグを用います。 action属性には送信先のURL、method属性には「post」か「get」をルーティングに合わせて指定します。
+divで囲んでいたのをformタグへ変更
+
+<button type="submit">送信</button> ボタン作るタグ type="submit" フォーム送信する設定 デフォでsubmitだけど、分かりやすく書いた方がいい
+
+type inputに書く どんな入力欄か形式を設定 text,number,emailとか色々 selectタブみたいな特殊なやつには不要
+name サーバーに送る時の名前をつける { {name}: "入力値" }でサーバーに届く req.タグ名.{name}とかで引用可能
+
+*テーブル構成
++--------------+--------------+------+-----+---------+----------------+
+| Field        | Type         | Null | Key | Default | Extra          |
++--------------+--------------+------+-----+---------+----------------+
+| id           | int          | NO   | PRI | NULL    | auto_increment | 何も入れない
+| prefecture   | varchar(30)  | NO   |     | NULL    |                | 住所
+| municipality | varchar(30)  | NO   |     | NULL    |                | 市区町村
+| address      | varchar(255) | NO   |     | NULL    |                | その後住所
+| birth        | date         | NO   |     | NULL    |                | 生年月日 year + month + day sqlで指定？
+| name         | varchar(255) | NO   |     | NULL    |                | 名前
+| email        | varchar(255) | NO   |     | NULL    |                | メアド
+| comment      | text         | YES  |     | NULL    |                | 自由コメント
++--------------+--------------+------+-----+---------+----------------+
+
+------------------------------------------------------------------->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>編集画面</title>
+  </head>
+  <body>
+    <form class="editbutton" action="/update/<%= contact.id %>" method="post">
+      <div>
+        <p>都道府県：</p>
+        <input
+          type="text"
+          name="prefecture"
+          value="<%= contact.prefecture %>"
+        />
+      </div>
+      <div>
+        <p>市区町村：</p>
+        <input
+          type="text"
+          name="municipality"
+          value="<%= contact.municipality %>"
+        />
+      </div>
+      <div>
+        <p>住所：</p>
+        <input type="text" name="address" value="<%= contact.address %>" />
+      </div>
+      <!-- //↓ここどうしよう？ --->
+      <div>
+        <p>誕生日：</p>
+        <input type="text" name="birth" value="<%= contact.birth %>" />
+      </div>
+
+      <div>
+        <p>名前：</p>
+        <input type="text" name="name" value="<%= contact.name %>" />
+      </div>
+      <div>
+        <p>メール：</p>
+        <input type="email" name="email" value="<%= contact.email %>" />
+      </div>
+      <div>
+        <p>コメント：</p>
+        <input type="text" name="comment" value="<%= contact.comment %>" />
+      </div>
+
+      <button type="submit">更新する</button>
+    </form>
+
+    <p><a href="/index">一覧へ戻る</a></p>
+  </body>
+</html>

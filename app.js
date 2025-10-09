@@ -12,6 +12,8 @@
 // (error) SQLの実行が失敗したときに、エラーメッセージが入る 真ならerrorオブジェクト、偽ならnull
 //
 // req.params.id URLから取得した id
+// res.render("edit.ejs", { contact: results[0] }); この書き方をすると、edit.ejsにcontact = results[0]が渡される 
+// <%= contact.id %>等で使える
 //---------------------------------------------------------------------
 
 const express = require("express");
@@ -39,7 +41,6 @@ app.get("/", (req, res) => {
 
 //連なるページ作成時には以下のように記載
 app.get("/index", (req, res) => {
-  // ここではDBから取らずにテスト用の配列を用意
   connection.query("SELECT * FROM contacts", (error, results) => {
     res.render("index.ejs", { contacts: results });
   });
@@ -96,13 +97,14 @@ app.post("/delete/:id", (req, res) => {
   );
 });
 
+//編集用のフォームを表示
 app.get("/edit/:id", (req, res) => {
   connection.query(
     "SELECT * FROM contacts WHERE id = ?",
     [req.params.id],
     (error, results) => {
       console.log(req.params.id);
-      res.redirect("/index");
+      res.render("edit.ejs", { contact: results[0] });
     }
   );
 });
