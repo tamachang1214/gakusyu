@@ -17,11 +17,24 @@
    *たまに使う使わないやつ
    background: linear-gradient(): 色のグラデ―ション作る
    ------------------------------------------------------------------- */
-.weather-container {
+.weather {
   margin: auto;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 8px;
+  display: flex;
+  align-items: center;
+  background-color: #6db65b;
+}
+
+.weather-title {
+  padding-left: 10px;
+  padding-right: 50px;
+}
+
+#weather-data {
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .title {
