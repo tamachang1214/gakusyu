@@ -1,4 +1,12 @@
 // --------------------------------------------------------------------
+// [MySQL (DB)]
+//    ⇅ SQLでやり取り
+// [Node.js / Express (Server)]
+//    ⇅ res.render(), HTTP通信
+// [EJS (View / HTML)]
+//    ⇅ ユーザー操作（クリック・フォーム送信）
+// [ブラウザ]
+//
 // req.タブ名.名前 サーバーに渡すの 例:req.body.year
 // connection.query() Node.jsとmysqlをつなぐ関数 SQLを書ける
 //
@@ -12,7 +20,7 @@
 // (error) SQLの実行が失敗したときに、エラーメッセージが入る 真ならerrorオブジェクト、偽ならnull
 //
 // req.params.id URLから取得した id
-// res.render("edit.ejs", { contact: results[0] }); この書き方をすると、edit.ejsにcontact = results[0]が渡される 
+// res.render("edit.ejs", { contact: results[0] }); この書き方をすると、edit.ejsにcontact = results[0]が渡される
 // <%= contact.id %>等で使える
 //---------------------------------------------------------------------
 

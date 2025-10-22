@@ -8,6 +8,8 @@ divで囲んでいたのをformタグへ変更
 type inputに書く どんな入力欄か形式を設定 text,number,emailとか色々 selectタブみたいな特殊なやつには不要
 name サーバーに送る時の名前をつける { {name}: "入力値" }でサーバーに届く req.タグ名.{name}とかで引用可能
 
+fetch() Web APIからデータを取る
+
 *テーブル構成
 +--------------+--------------+------+-----+---------+----------------+
 | Field        | Type         | Null | Key | Default | Extra          |
@@ -31,6 +33,14 @@ name サーバーに送る時の名前をつける { {name}: "入力値" }でサ
 </head>
 
 <body>
+  <div>
+    <h2>都城の天気</h2>
+    <p id="weather-data"></p>
+    <p id="weather-telop"></p>
+    <img id="weather-img"/>
+    <p id="weather-temp"></p>
+  </div>
+
   <h1 class="title">お問い合わせフォーム</h1>
 
   <form class="form" action="/create" method="post">
@@ -324,6 +334,10 @@ name サーバーに送る時の名前をつける { {name}: "入力値" }でサ
   .remove(); 削除 ()=要素全て削除 (0)=インデックス指定して削除 
   <select要素>.options.length selectタグの中のoptionタグの数
   console.log(★.outerHTML); HTMLの変移を確認する時に
+  async 非同期処理を書く際に必要 async function move(){}
+  await この処理が終わるまで、次の行に進まずに待つ という指示 ※fetch関数の友達、これが無いと空のまま実行される
+  fetch() apiにリクエストを飛ばしレスポンスを貰う httpレスポンスという形で帰ってくる（そのままじゃ多分使えない）
+  ○.json(); fetchで取得したhttpレスポンスをjavascriptが使える形に変換
 -------------------------------------------------------------------->
 
   <script>
@@ -463,5 +477,26 @@ name サーバーに送る時の名前をつける { {name}: "入力値" }でサ
         sikutyoson.appendChild(soption);
       }
     });
+
+    async function miyakonojoweather() {
+      const miyakonojo = await fetch(
+        "https://weather.tsukumijima.net/api/forecast/city/450010"
+      );
+      const data = await miyakonojo.json();
+      const today = data.forecasts[0];
+
+      document.getElementById("weather-data").textContent =
+        today.dateLabel + "（" + today.date + "）";
+      document.getElementById("weather-telop").textContent = today.telop;
+      document.getElementById("weather-temp").textContent =
+        "最高:" +
+        today.temperature.max.celsius +
+        "℃ 最低:" +
+        today.temperature.min.celsius +
+        "℃";
+      document.getElementById("weather-img").src = today.image.url;
+    }
+
+    miyakonojoweather();
   </script>
 </body>

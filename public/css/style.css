@@ -17,6 +17,12 @@
    *たまに使う使わないやつ
    background: linear-gradient(): 色のグラデ―ション作る
    ------------------------------------------------------------------- */
+.weather-container {
+  margin: auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
 
 .title {
   text-align: center;
@@ -104,7 +110,7 @@ form.form-index {
 }
 
 /*edit.ejs------------------------------------------------------------------------------------*/
-.editbutton div{
-  display :flex;
-  align-items :center;
+.editbutton div {
+  display: flex;
+  align-items: center;
 }
