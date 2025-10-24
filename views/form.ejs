@@ -338,6 +338,12 @@ fetch() Web APIからデータを取る
   await この処理が終わるまで、次の行に進まずに待つ という指示 ※fetch関数の友達、これが無いと空のまま実行される
   fetch() apiにリクエストを飛ばしレスポンスを貰う httpレスポンスという形で帰ってくる（そのままじゃ多分使えない）
   ○.json(); fetchで取得したhttpレスポンスをjavascriptが使える形に変換
+
+  .then() → 「○○が終わったら△△してね」
+  await → 「○○が終わるまで待ってから次へ進む」
+
+  慣習的に、APIはres dataという名前をつける
+
 -------------------------------------------------------------------->
 
   <script>
@@ -479,10 +485,10 @@ fetch() Web APIからデータを取る
     });
 
     async function miyakonojoweather() {
-      const miyakonojo = await fetch(
+      const res = await fetch(
         "https://weather.tsukumijima.net/api/forecast/city/450010"
       );
-      const data = await miyakonojo.json();
+      const data = await res.json();
       const today = data.forecasts[0];
 
       document.getElementById("weather-data").textContent =
